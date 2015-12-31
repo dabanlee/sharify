@@ -1,0 +1,17 @@
+/*!
+ * 
+ * Sharify Style
+ * 
+*/
+.share {
+  text-align: center;
+}
+
+.share .share-icon {
+  display: inline-block;
+  margin: 0 .2em;
+  width: 20px;
+  height: 20px;
+  text-indent: 999px;
+  overflow: hidden;
+}

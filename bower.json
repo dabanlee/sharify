@@ -1,0 +1,26 @@
+{
+  "name": "just-react",
+  "description": "A generator for react, to generated a react app quickly.",
+  "main": "bundle.js",
+  "authors": [
+    "JustClear"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "generator"
+  ],
+  "moduleType": [],
+  "homepage": "https://github.com/justclear/just-react#readme",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.14.3"
+  }
+}

@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="description" content="A share component to share your website on multiple third-party social networks.">
 	<title>Sharify</title>
-	<link rel="stylesheet" href="./dist/css/sharify.css">
+	<link rel="stylesheet" href="./src/css/sharify.css">
 </head>
 <body>
-	<div class="share" data-sites="Google,Facebook,Baidu,QQ,WeChat" data-mobile-sites="WeChat,Weibo"></div>
+	<img src="http://ww2.sinaimg.cn/bmiddle/78e4b8d4gw1ezoim93bwpj20jw0a73zn.jpg" alt="">
+	<div class="share"></div>
 	
-	<script src="./src/js/sharify.js"></script>
+	<script src="./src/ts/sharify.js"></script>
 	<script>
 		var share = new Sharify({
-			// render: '.share',
-			hello: 'hello'
+			render: '.share',
+			sites: ['weibo', 'qzone', 'qq', 'wechat', 'douban', 'linkedin', 'twitter', 'facebook', 'google', 'diandian']
 		});
 	</script>
 </body>

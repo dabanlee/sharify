@@ -4,16 +4,27 @@
  * 
 */ 
 
+@import 'iconfont';
+
 .share {
 	text-align: center;
 	
 	.share-icon {
 		$icon-size: 20px;
 		display: inline-block;
-		margin: 0 .2em;
 		width: $icon-size;
 		height: $icon-size;
-		text-indent: 999px;
+		line-height: $icon-size;
+		padding: .3em;
+		border: 1px solid #000;
+		border-radius: 100%;
+		margin: 0 .2em;
+
+		font-size: 1.3em;
+		color: #000;
+
+		// text-indent: 999px;
+		text-decoration: none;
 		overflow: hidden;
 	}
 }

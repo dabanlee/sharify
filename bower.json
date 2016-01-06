@@ -1,26 +1,26 @@
 {
-  "name": "just-react",
-  "description": "A generator for react, to generated a react app quickly.",
-  "main": "bundle.js",
+  "name": "sharify",
+  "description": "A share component to share your website on multiple third-party social networks.",
+  "main": "sharify.js",
   "authors": [
     "JustClear"
   ],
   "license": "MIT",
   "keywords": [
-    "generator"
+    "share",
+    "component",
+    "social"
   ],
-  "moduleType": [],
-  "homepage": "https://github.com/justclear/just-react#readme",
-  "private": false,
+  "homepage": "https://github.com/JustClear/sharify",
+  "moduleType": [
+    "es6"
+  ],
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "./libs",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "react": "~0.14.3"
-  }
+  ]
 }

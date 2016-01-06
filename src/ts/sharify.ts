@@ -107,8 +107,6 @@ class Sharify {
 			fragment = document.createDocumentFragment(),
 			_shareUrls = this._shareUrls;
 
-		console.log(sites);
-
 		for (; i < len; i++) {
 			let iconNode,
 				name = sites[i],
@@ -181,20 +179,6 @@ class Sharify {
 	data() {
 		let element = this.element;
 		return element.dataset;
-	}
-
-	/*!
-	 * setUrl
-	 * @param {}
-	*/ 
-	setUrl(name) {
-		let key,
-			_shareUrls = this._shareUrls,
-			url = this._shareUrls[name.toLowerCase()];
-
-		$template = $template.replace(new RegExp('{%url%}', 'g'), $value)
-
-		return url;
 	}
 }
 // }

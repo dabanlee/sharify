@@ -50,6 +50,7 @@ gulp.task('styles', function() {
 
 	// Output uncompressed file to the specified directory
 	.pipe(gulp.dest('./dist/css'))
+	.pipe(gulp.dest('./src/css'))
 
 	// Add '.min' suffix to the file
 	.pipe(rename({
@@ -61,6 +62,7 @@ gulp.task('styles', function() {
 
 	// Output the compressed file to the specified directory
 	.pipe(gulp.dest('./dist/css'))
+	.pipe(gulp.dest('./src/css'))
 
 	// Task completed tips
 	.pipe(notify({

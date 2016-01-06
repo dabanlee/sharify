@@ -6,24 +6,114 @@
 
 @import 'iconfont';
 
-.share {
+$text-color: #509786;
+
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+body {
+	font-family: 'MicroSoft YaHei';
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #333;
+	font-weight: normal;
+}
+
+h1,
+h2,
+h3 {
+	margin: 1em 0;
+}
+
+h4,
+h5,
+h6 {
+	margin: .5em 0;
+}
+
+pre {
+	background: #eee;
+	padding: 0 .5em;
+	overflow-x: auto;
+
+	code {
+		font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	}
+}
+
+.container {
+	width: 94%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.text-center {
 	text-align: center;
+}
+
+.header {
+
+	img {
+		width: 100%;
+	}
+}
+
+.content {
+	margin: 1em 0;
+}
+
+.footer {
+	padding: 2em 0;
+
+	a {
+		margin: .5em;
+	}
+}
+
+.fork-me {
+	position: fixed;
+	top: 0;
+	right: 0;
+
+	@media(max-width: 640px) {
+		img {
+			width: 75px;
+		}
+	}
+}
+
+.share {
 	
 	.share-icon {
-		$icon-size: 20px;
 		display: inline-block;
-		width: $icon-size;
-		height: $icon-size;
-		line-height: $icon-size;
 		padding: .3em;
-		border: 1px solid #000;
+		// border: 1px solid #000;
+		border-width: 1px;
+		border-style: solid;
 		border-radius: 100%;
 		margin: 0 .2em;
 
 		font-size: 1.3em;
-		color: #000;
 
 		// text-indent: 999px;
+		text-align: center;
 		text-decoration: none;
 		overflow: hidden;
 	}

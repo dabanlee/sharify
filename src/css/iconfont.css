@@ -5,10 +5,11 @@
 */
 @font-face {
   font-family: "iconfont";
-  src: url("iconfont.eot");
+  src: url("../fonts/iconfont.eot");
   /* IE9*/
-  src: url("iconfont.eot?#iefix") format("embedded-opentype"), url("iconfont.woff") format("woff"), url("iconfont.ttf") format("truetype"), url("iconfont.svg#iconfont") format("svg");
+  src: url("../fonts/iconfont.eot?#iefix") format("embedded-opentype"), url("../fonts/iconfont.woff") format("woff"), url("../fonts/iconfont.ttf") format("truetype"), url("../fonts/iconfont.svg#iconfont") format("svg");
   /* iOS 4.1- */ }
+.share-icon,
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -29,7 +30,7 @@
 .icon-linkedin:before {
   content: "\e603"; }
 
-.icon-weixin:before {
+.icon-wechat:before {
   content: "\e604"; }
 
 .icon-twitter:before {
@@ -38,7 +39,7 @@
 .icon-facebook:before {
   content: "\e606"; }
 
-.icon-weibo1:before {
+.icon-qq-weibo:before {
   content: "\e607"; }
 
 .icon-google:before {
@@ -47,7 +48,7 @@
 .icon-diandian:before {
   content: "\e609"; }
 
-.icon-kongjian:before {
+.icon-qzone:before {
   content: "\e60a"; }
 
 /*# sourceMappingURL=iconfont.css.map */

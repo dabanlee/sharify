@@ -15,6 +15,11 @@
 
 .share-icon,
 .iconfont {
+	-webkit-transition: all .3s;
+	   -moz-transition: all .3s;
+		 -o-transition: all .3s;
+			transition: all .3s;
+
 	font-family:"iconfont" !important;
 	font-size:16px;
 	font-style:normal;
@@ -23,46 +28,146 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-douban:before {
-	content: "\e600";
+.icon-douban {
+	color: #60c26f;
+
+	&:before {
+		content: "\e600";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #60c26f;
+	}
 }
 
-.icon-qq:before {
-	content: "\e601";
+.icon-qq {
+	color: #56b6e7;
+
+	&:before {
+		content: "\e601";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #56b6e7;
+	}
 }
 
-.icon-weibo:before {
-	content: "\e602";
+.icon-weibo {
+	color: #e6162d;
+	// border-color: #e70724;
+
+	&:before {
+		content: "\e602";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #e6162d;
+	}
 }
 
-.icon-linkedin:before {
-	content: "\e603";
+.icon-linkedin {
+	color: #0077b5;
+
+	&:before {
+		content: "\e603";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #0077b5;
+	}
 }
 
-.icon-wechat:before {
-	content: "\e604";
+.icon-wechat {
+	color: #7bc549;
+
+	&:before {
+		content: "\e604";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #7bc549;
+	}
 }
 
-.icon-twitter:before {
-	content: "\e605";
+.icon-twitter {
+	color: #55acee;
+
+	&:before {
+		content: "\e605";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #55acee;
+	}
 }
 
-.icon-facebook:before {
-	content: "\e606";
+.icon-facebook {
+	color: #44619d;
+
+	&:before {
+		content: "\e606";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #44619d;
+	}
 }
 
-.icon-qq-weibo:before {
-	content: "\e607";
+.icon-qq-weibo {
+	color: #56b6e7;
+
+	&:before {
+		content: "\e607";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #56b6e7;
+	}
 }
 
-.icon-google:before {
-	content: "\e608";
+.icon-google {
+	color: #db4437;
+
+	&:before {
+		content: "\e608";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #db4437;
+	}
 }
 
-.icon-diandian:before {
-	content: "\e609";
+.icon-diandian {
+	color: #307dc9;
+
+	&:before {
+		content: "\e609";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #307dc9;
+	}
 }
 
-.icon-qzone:before {
-	content: "\e60a";
+.icon-qzone {
+	color: #febd3d;
+
+	&:before {
+		content: "\e60a";
+	}
+
+	&:hover {
+		color: #fff;
+		background: #febd3d;
+	}
 }

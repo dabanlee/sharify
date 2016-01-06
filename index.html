@@ -2,15 +2,88 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Sharify - A social share component</title>
 	<meta name="description" content="A share component to share your website on multiple third-party social networks.">
-	<title>Sharify</title>
 	<link rel="stylesheet" href="./src/css/sharify.css">
 </head>
 <body>
-	<img src="http://ww2.sinaimg.cn/bmiddle/78e4b8d4gw1ezoim93bwpj20jw0a73zn.jpg" alt="">
-	<div class="share"></div>
+	<header class="header">
+		<img src="./src/img/banner.png" alt="Banner">
+	</header>
+
+	<section class="content">
+		<div class="container">
+			<h1>README</h1>
+
+			<h2>Demo</h2>
+			<div class="share"></div>
+			
+			<h2>Getting Started With Sliderify</h2>
+
+			<h3>Install</h3>
+			<pre>
+				<code>
+bower install sharify
+				</code>
+			</pre>
+
+			<h3>Import CSS and JavaScript file.</h3>
+			<pre>
+				<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="./dist/css/sharify.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="share"&gt;&lt;/div&gt;
+
+    &lt;script src="./dist/js/sliderify.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        var share = new Sharify({
+            // Options
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+				</code>
+			</pre>
+
+			<h3>Options</h3>
+			<pre>
+				<code>
+var share = new Sharify({
+    render: '.share',
+    sites: ['weibo', 'qzone', 'qq', 'wechat', 'douban', 'linkedin', 'twitter', 'facebook', 'google', 'diandian']
+});
+				</code>
+			</pre>
+
+			<h3>Todos</h3>
+			<ul>
+				<li>Data surport.</li>
+			</ul>
+		</div>
+	</section>
+
+	<div class="fork-me">
+		<a href="https://github.com/JustClear/sharify">
+			<img src="./src/img/fork-me.png" alt="Fork Me">
+		</a>
+	</div>
+
+	<footer class="footer text-center">
+		<div class="container">
+			<p>
+				<a href="https://github.com/JustClear/sharify" title="View on GitHub" target="_blank">View on GitHub</a>
+				<a href="https://github.com/justclear" title="@JustClear" target="_blank">@JustClear</a>
+			</p>
+		</div>
+	</footer>
 	
-	<script src="./src/ts/sharify.js"></script>
+	<script src="./src/js/sharify.js"></script>
 	<script>
 		var share = new Sharify({
 			render: '.share',

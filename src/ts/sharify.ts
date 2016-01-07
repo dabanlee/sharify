@@ -36,29 +36,17 @@ class Sharify {
 		this.options = this.extend({}, this.defaults, options);
 		this.element = this.query(this.options.render);
 		this._shareUrls = {
-			weibo: 'http://service.weibo.com/share/share.php?url=' + this.siteInfo.url + '&title=' + this.siteInfo.title + '&pic=' + this.siteInfo.image,
+			weibo: `http://service.weibo.com/share/share.php?url=${ this.siteInfo.url }&title=${this.siteInfo.title}&pic=${this.siteInfo.image}`,
 			wechat: 'javascript:;',
-			qzone: 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + this.siteInfo.url + '&title=' + this.siteInfo.title + '&desc=' + this.siteInfo.description + '&summary=' + this.siteInfo.summary + '&site=' + this.siteInfo.source,
-			qq: 'http://connect.qq.com/widget/shareqq/index.html?url=' + this.siteInfo.url + '&title=' + this.siteInfo.title + '&source=' + this.siteInfo.source + '&desc=' + this.siteInfo.description + '&pics=' + this.siteInfo.image + '&site=' + this.siteInfo.title,
-			douban: 'http://shuo.douban.com/!service/share?href=' + this.siteInfo.url + '&name=' + this.siteInfo.title + '&text=' + this.siteInfo.description + '&image=' + this.siteInfo.image + '&starid=0&aid=0&style=11',
-			diandian: 'http://www.diandian.com/share?lo=' + this.siteInfo.url + '&ti=' + this.siteInfo.title + '&type=link',
-			linkedin: 'http://www.linkedin.com/shareArticle?mini=true&ro=true&title=' + this.siteInfo.title + '&url=' + this.siteInfo.url + '&summary=' + this.siteInfo.summary + '&source=' + this.siteInfo.source + '&armin=armin',
-			facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + this.siteInfo.url,
-			twitter: 'https://twitter.com/intent/tweet?text=' + this.siteInfo.title + '&url=' + this.siteInfo.url + '&via=' + this.siteInfo.siteOrigin,
-			google: 'https://plus.google.com/share?url=' + this.siteInfo.url
+			qzone: `http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=${ this.siteInfo.url }&title=${ this.siteInfo.title }&desc=${ this.siteInfo.description }&summary=${ this.siteInfo.summary }&site=${ this.siteInfo.source }`,
+			qq: `http://connect.qq.com/widget/shareqq/index.html?url=${ this.siteInfo.url }&title=${ this.siteInfo.title }&source=${ this.siteInfo.source }&desc=${ this.siteInfo.description }&pics=${ this.siteInfo.image }&site=${ this.siteInfo.title }`,
+			douban: `http://shuo.douban.com/!service/share?href=${ this.siteInfo.url }&name=${ this.siteInfo.title }&text=${ this.siteInfo.description }&image=${ this.siteInfo.image }&starid=0&aid=0&style=11`,
+			diandian: `http://www.diandian.com/share?lo=${ this.siteInfo.url }&ti=${ this.siteInfo.title }&type=link`,
+			linkedin: `http://www.linkedin.com/shareArticle?mini=true&ro=true&title=${ this.siteInfo.title }&url=${ this.siteInfo.url }&summary=${ this.siteInfo.summary }&source=${ this.siteInfo.source }&armin=armin`,
+			facebook: `https://www.facebook.com/sharer/sharer.php?u=${ this.siteInfo.url }`,
+			twitter: `https://twitter.com/intent/tweet?text=${ this.siteInfo.title }&url=${ this.siteInfo.url }&via=${ this.siteInfo.siteOrigin }`,
+			google: `https://plus.google.com/share?url=${ this.siteInfo.url }`
 		}
-		// this._shareUrls = {
-		// 	weibo: 'http://service.weibo.com/share/share.php?url={%url%}&title={%title%}&pic={%image%}',
-		// 	wechat: 'javascript:;',
-		// 	qzone: 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={%url%}&title={%title%}&desc={%description%}&summary={%summary%}&site={%source%}',
-		// 	qq: 'http://connect.qq.com/widget/shareqq/index.html?url={%url%}&title={%title%}&source={%source%}&desc={%description%}',
-		// 	douban: 'http://shuo.douban.com/!service/share?href={%url%}&name={%title%}&text={%description%}&image={%image%}&starid=0&aid=0&style=11',
-		// 	diandian: 'http://www.diandian.com/share?lo={%url%}&ti={%title%}&type=link',
-		// 	linkedin: 'http://www.linkedin.com/shareArticle?mini=true&ro=true&title={%title%}&url={%url%}&summary={%summary%}&source={%source%}&armin=armin',
-		// 	facebook: 'https://www.facebook.com/sharer/sharer.php?u={%url%}',
-		// 	twitter: 'https://twitter.com/intent/tweet?text={%title%}&url={%url%}&via={%siteOrigin%}',
-		// 	google: 'https://plus.google.com/share?url={%url%}'
-		// }
 		this.initialize();
 	}
 
@@ -105,7 +93,8 @@ class Sharify {
 			i = 0,
 			len = sites.length,
 			fragment = document.createDocumentFragment(),
-			_shareUrls = this._shareUrls;
+			_shareUrls = this._shareUrls,
+			weChatElement;
 
 		for (; i < len; i++) {
 			let iconNode,
@@ -125,6 +114,32 @@ class Sharify {
 		}
 
 		this.element.appendChild(fragment);
+
+		weChatElement = this.query('.icon-wechat');
+		this.renderWeChat(weChatElement);
+	}
+
+	/*!
+	 * renderWeChat
+	 * @param {}
+	*/ 
+	renderWeChat(target) {
+		let weChatNode,
+			weChatQrCode,
+			codeWrapper,
+			// Use Top Scan Qr Code API.
+			src = `http://qr.topscan.com/api.php?text=${ this.siteInfo.url }`;
+
+		weChatQrCode = document.createElement('img');
+		weChatQrCode.setAttribute('src', src);
+		weChatQrCode.setAttribute('alt', 'WeChar Qr-Code');
+
+		codeWrapper = document.createElement('div');
+		codeWrapper.setAttribute('class', 'qr-code');
+
+		codeWrapper.appendChild(weChatQrCode);
+
+		target.appendChild(codeWrapper);
 	}
 
 	/*!

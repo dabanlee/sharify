@@ -115,6 +115,33 @@ pre {
 		// text-indent: 999px;
 		text-align: center;
 		text-decoration: none;
-		overflow: hidden;
+		// overflow: hidden;
+	}
+
+	.icon-wechat {
+		position: relative;
+
+		.qr-code {
+			$code-size: 150px;
+			visibility: hidden;
+			position: absolute;
+			bottom: 45px;
+			left: -($code-size / 2 - 20);
+			width: $code-size;
+			background: #fff;
+			z-index: 999;
+			box-shadow: 0 0 30px #aaa;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		&:hover {
+			
+			.qr-code {
+				visibility: visible;
+			}
+		}
 	}
 }

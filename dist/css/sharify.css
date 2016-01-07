@@ -267,5 +267,27 @@ pre code {
   font-size: 1.3em;
   text-align: center;
   text-decoration: none;
-  overflow: hidden;
+}
+
+.share .icon-wechat {
+  position: relative;
+}
+
+.share .icon-wechat .qr-code {
+  visibility: hidden;
+  position: absolute;
+  bottom: 45px;
+  left: -55px;
+  width: 150px;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 0 0 30px #aaa;
+}
+
+.share .icon-wechat .qr-code img {
+  width: 100%;
+}
+
+.share .icon-wechat:hover .qr-code {
+  visibility: visible;
 }

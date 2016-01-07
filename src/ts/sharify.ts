@@ -29,23 +29,24 @@ class Sharify {
 			siteOrigin: window.location.origin,
 			source: document.getElementsByTagName('title')[0].innerText || document.title,
 			title: document.getElementsByTagName('title')[0].innerText || document.title,
-			image: this.getImage(),
 			description: this.getMeta('description'),
-			summary: ''
+			summary: this.getMeta('description'),
+			image: this.getImage()
 		};
-		this.options = this.extend({}, this.defaults, options);
+		this.options = this.extend({}, this.siteInfo, this.defaults, options);
 		this.element = this.query(this.options.render);
 		this._shareUrls = {
-			weibo: `http://service.weibo.com/share/share.php?url=${ this.siteInfo.url }&title=${this.siteInfo.title}&pic=${this.siteInfo.image}`,
+			weibo: `http://service.weibo.com/share/share.php?url=${ this.options.url }&title=${this.options.title}&pic=${this.options.image}`,
 			wechat: 'javascript:;',
-			qzone: `http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=${ this.siteInfo.url }&title=${ this.siteInfo.title }&desc=${ this.siteInfo.description }&summary=${ this.siteInfo.summary }&site=${ this.siteInfo.source }`,
-			qq: `http://connect.qq.com/widget/shareqq/index.html?url=${ this.siteInfo.url }&title=${ this.siteInfo.title }&source=${ this.siteInfo.source }&desc=${ this.siteInfo.description }&pics=${ this.siteInfo.image }&site=${ this.siteInfo.title }`,
-			douban: `http://shuo.douban.com/!service/share?href=${ this.siteInfo.url }&name=${ this.siteInfo.title }&text=${ this.siteInfo.description }&image=${ this.siteInfo.image }&starid=0&aid=0&style=11`,
-			diandian: `http://www.diandian.com/share?lo=${ this.siteInfo.url }&ti=${ this.siteInfo.title }&type=link`,
-			linkedin: `http://www.linkedin.com/shareArticle?mini=true&ro=true&title=${ this.siteInfo.title }&url=${ this.siteInfo.url }&summary=${ this.siteInfo.summary }&source=${ this.siteInfo.source }&armin=armin`,
-			facebook: `https://www.facebook.com/sharer/sharer.php?u=${ this.siteInfo.url }`,
-			twitter: `https://twitter.com/intent/tweet?text=${ this.siteInfo.title }&url=${ this.siteInfo.url }&via=${ this.siteInfo.siteOrigin }`,
-			google: `https://plus.google.com/share?url=${ this.siteInfo.url }`
+			qzone: `http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=${ this.options.url }&title=${ this.options.title }&desc=${ this.options.description }&summary=${ this.options.summary }&site=${ this.options.source }`,
+			qq: `http://connect.qq.com/widget/shareqq/index.html?url=${ this.options.url }&title=${ this.options.title }&source=${ this.options.source }&desc=${ this.options.description }&pics=${ this.options.image }&site=${ this.options.title }`,
+			douban: `http://shuo.douban.com/!service/share?href=${ this.options.url }&name=${ this.options.title }&text=${ this.options.description }&image=${ this.options.image }&starid=0&aid=0&style=11`,
+			diandian: `http://www.diandian.com/share?lo=${ this.options.url }&ti=${ this.options.title }&type=link`,
+			linkedin: `http://www.linkedin.com/shareArticle?mini=true&ro=true&title=${ this.options.title }&url=${ this.options.url }&summary=${ this.options.summary }&source=${ this.options.source }&armin=armin`,
+			facebook: `https://www.facebook.com/sharer/sharer.php?u=${ this.options.url }`,
+			twitter: `https://twitter.com/intent/tweet?text=${ this.options.title }&url=${ this.options.url }&via=${ this.options.siteOrigin }`,
+			// pinterest: `https://www.pinterest.com/pin/create/button/?url=${ this.options.url }&media=${ this.options.image }&description=${ this.options.description }`,
+			google: `https://plus.google.com/share?url=${ this.options.url }`
 		}
 		this.initialize();
 	}
@@ -101,16 +102,19 @@ class Sharify {
 				name = sites[i],
 				nameLower = name.toLowerCase();
 
-			iconNode = document.createElement('a');
-			// iconNode.setAttribute('href', 'http://www.baidu.com');
-			iconNode.setAttribute('class', 'share-icon icon-' + nameLower);
-			iconNode.setAttribute('title', name);
-			iconNode.setAttribute('target', '_blank');
-			// iconNode.text = name;
+			// determine whether surport this social network share component.
+			if(nameLower in _shareUrls) {
+				iconNode = document.createElement('a');
+				iconNode.setAttribute('class', 'share-icon icon-' + nameLower);
+				iconNode.setAttribute('title', name);
+				iconNode.setAttribute('target', '_blank');
+				iconNode.setAttribute('href', _shareUrls[nameLower]);
 
-			iconNode.setAttribute('href', _shareUrls[nameLower]);
-
-			fragment.appendChild(iconNode);
+				fragment.appendChild(iconNode);
+			} else {
+				
+				throw new Error(`Temporarily not supported ${ name } share.`);
+			}
 		}
 
 		this.element.appendChild(fragment);

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf dist && npm run rollup:dev",
     "publish": "rm -rf dist && npm run rollup:dev && npm run rollup:prod",
-    "rollup": "npm run rollup:dev",
+    "rollup:watch": "rollup -w -c rollup.config.dev.js",
     "rollup:dev": "rollup -c rollup.config.dev.js",
     "rollup:prod": "rollup -c rollup.config.prod.js",
     "lint": "eslint src",

@@ -1,24 +1,7 @@
-/*!
- * A share component to share your website 
- * on multiple third-party social networks.
- * 
- * @Author: Clear
- * @Version: 1.0.0
- * @Update: 2015-12-31
- * 
- * Powered By: TypeScript
- * 
- * Released under the MIT license
- * 
-*/ 
-// module Sharify {
-// export default 
-class Sharify {
+// @flow
 
-	/*!
-	 * Constructor
-	 * @param {object} - The options for Sharify.
-	*/ 
+export default class Sharify {
+
 	constructor(options) {
 		this.defaults = {
 			render: '.share',
@@ -51,22 +34,10 @@ class Sharify {
 		this.initialize();
 	}
 
-	/*!
-	 * Initialize
-	*/ 
 	initialize() {
-		// console.log(this.element);
-		// console.log(this.defaults);
-		// console.log(this.options);
-		// console.log(this.data());
 		this.renderIcons();
 	}
 
-	/*!
-	 * Extend - Object copy.
-	 * @param {object} - Source object.
-	 * @param {object} - Target object.
-	*/ 
 	extend() {
 		var i,
 			len = arguments.length,
@@ -82,14 +53,7 @@ class Sharify {
 		return arguments[0];
 	}
 
-	/*!
-	 * Query
-	 * @param {string}
-	*/ 
 	renderIcons() {
-		// let _split = String.prototype.split,
-		// 	sites = _split.call(this.data().sites, ',');
-
 		let sites = this.options.sites,
 			i = 0,
 			len = sites.length,
@@ -112,7 +76,7 @@ class Sharify {
 
 				fragment.appendChild(iconNode);
 			} else {
-				
+
 				throw new Error(`Temporarily not supported ${ name } share.`);
 			}
 		}
@@ -123,10 +87,6 @@ class Sharify {
 		this.renderWeChat(weChatElement);
 	}
 
-	/*!
-	 * renderWeChat
-	 * @param {}
-	*/ 
 	renderWeChat(target) {
 		let weChatNode,
 			weChatQrCode,
@@ -146,10 +106,6 @@ class Sharify {
 		target.appendChild(codeWrapper);
 	}
 
-	/*!
-	 * getMeta
-	 * @param {}
-	*/ 
 	getMeta(name) {
 		let metas = document.getElementsByTagName('meta'),
 			content,
@@ -165,10 +121,6 @@ class Sharify {
 		return content;
 	}
 
-	/*!
-	 * getImage
-	 * @param {}
-	*/ 
 	getImage() {
 		let body = document.getElementsByTagName('body')[0],
 			image = body.getElementsByTagName('img')[0],
@@ -176,28 +128,16 @@ class Sharify {
 		return src || '';
 	}
 
-	/*!
-	 * getSites
-	 * @param {}
-	*/ 
 	getSites(url) {
 		//
 	}
 
-	/*!
-	 * Query
-	 * @param {string}
-	*/ 
 	query(selector) {
 		return document.querySelector(selector);
 	}
 
-	/*!
-	 * Data - Get `data-*` data.
-	*/ 
 	data() {
 		let element = this.element;
 		return element.dataset;
 	}
 }
-// }

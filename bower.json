@@ -14,10 +14,7 @@
   "ignore": [
     "**/.*",
     ".*",
-    "*.js",
-    "*.json",
-    "*.md",
-    "*.yml",
+    "rollup.*.js",
     "node_modules",
     "bower_components",
     "test",

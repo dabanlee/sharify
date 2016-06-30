@@ -1,12 +1,11 @@
 // utils/index.js
 
-export function getMeta() {
+export function getMeta(name) {
     let metas = document.querySelectorAll('meta'),
         content,
         metaArray = Array.prototype.slice.call(metas);
-
-    metaArray.map((item, index) => {
-        if (item.getAttribute['name'] == name) {
+    metaArray.map(item => {
+        if (item.name == name) {
             content = item.content;
         }
     });

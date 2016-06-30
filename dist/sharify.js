@@ -36,13 +36,12 @@
 
   // utils/index.js
 
-  function getMeta() {
+  function getMeta(name) {
       var metas = document.querySelectorAll('meta'),
           content = void 0,
           metaArray = Array.prototype.slice.call(metas);
-
-      metaArray.map(function (item, index) {
-          if (item.getAttribute['name'] == name) {
+      metaArray.map(function (item) {
+          if (item.name == name) {
               content = item.content;
           }
       });
@@ -81,7 +80,7 @@
 
   		this.defaults = {
   			element: '.share',
-  			sites: ['weibo', 'qzone', 'qq', 'wechat', 'douban', 'linkedin', 'twitter', 'facebook', 'google', 'diandian']
+  			sites: ['weibo', 'qzone', 'qq', 'wechat', 'douban', 'linkedin', 'twitter', 'facebook', 'google', 'pinterest']
   		};
   		this.siteInfo = {
   			url: location.href,
@@ -100,7 +99,6 @@
   			qzone: 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + this.options.url + '&title=' + this.options.title + '&desc=' + this.options.description + '&summary=' + this.options.summary + '&site=' + this.options.source,
   			qq: 'http://connect.qq.com/widget/shareqq/index.html?url=' + this.options.url + '&title=' + this.options.title + '&source=' + this.options.source + '&desc=' + this.options.description + '&pics=' + this.options.image + '&site=' + this.options.title,
   			douban: 'http://shuo.douban.com/!service/share?href=' + this.options.url + '&name=' + this.options.title + '&text=' + this.options.description + '&image=' + this.options.image + '&starid=0&aid=0&style=11',
-  			diandian: 'http://www.diandian.com/share?lo=' + this.options.url + '&ti=' + this.options.title + '&type=link',
   			linkedin: 'http://www.linkedin.com/shareArticle?mini=true&ro=true&title=' + this.options.title + '&url=' + this.options.url + '&summary=' + this.options.summary + '&source=' + this.options.source + '&armin=armin',
   			facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + this.options.url,
   			twitter: 'https://twitter.com/intent/tweet?text=' + this.options.title + '&url=' + this.options.url + '&via=' + this.options.siteOrigin,

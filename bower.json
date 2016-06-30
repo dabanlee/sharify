@@ -1,23 +1,23 @@
 {
   "name": "sharify",
   "description": "A share component to share your website on multiple third-party social networks.",
-  "main": "sharify.js",
+  "main": "src/index.js",
   "authors": [
     "JustClear"
   ],
   "license": "MIT",
   "keywords": [
-    "share",
-    "component",
-    "social"
+    "sharify",
+    "library"
   ],
   "homepage": "https://github.com/JustClear/sharify",
-  "moduleType": [
-    "es6"
-  ],
-  "private": true,
   "ignore": [
     "**/.*",
+    ".*",
+    "*.js",
+    "*.json",
+    "*.md",
+    "*.yml",
     "node_modules",
     "bower_components",
     "test",

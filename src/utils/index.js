@@ -13,8 +13,7 @@ export function getMeta(name) {
 }
 
 export function getImage() {
-    let body = document.querySelector('body'),
-        image = document.querySelector('img'),
+    let image = document.querySelector('img'),
         src = image.src || image.getAttribute('src');
     return src || '';
 }

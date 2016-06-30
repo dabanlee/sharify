@@ -49,8 +49,7 @@
   }
 
   function getImage() {
-      var body = document.querySelector('body'),
-          image = document.querySelector('img'),
+      var image = document.querySelector('img'),
           src = image.src || image.getAttribute('src');
       return src || '';
   }

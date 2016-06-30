@@ -11,7 +11,7 @@ export default class Sharify {
 	constructor(options) {
 		this.defaults = {
 			element: '.share',
-			sites: ['weibo', 'qzone', 'qq', 'wechat', 'douban', 'linkedin', 'twitter', 'facebook', 'google', 'pinterest']
+			sites: ['weibo', 'qzone', 'qq', 'wechat', 'douban', 'linkedin', 'twitter', 'facebook', 'google', 'pinterest',],
 		};
 		this.siteInfo = {
 			url: location.href,
@@ -34,8 +34,8 @@ export default class Sharify {
 			facebook: `https://www.facebook.com/sharer/sharer.php?u=${ this.options.url }`,
 			twitter: `https://twitter.com/intent/tweet?text=${ this.options.title }&url=${ this.options.url }&via=${ this.options.siteOrigin }`,
 			pinterest: `https://www.pinterest.com/pin/create/button/?url=${ this.options.url }&media=${ this.options.image }&description=${ this.options.description }`,
-			google: `https://plus.google.com/share?url=${ this.options.url }`
-		}
+			google: `https://plus.google.com/share?url=${ this.options.url }`,
+		};
 		this.initialize();
 	}
 
